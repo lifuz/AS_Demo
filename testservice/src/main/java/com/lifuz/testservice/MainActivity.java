@@ -1,37 +1,54 @@
 package com.lifuz.testservice;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.lifuz.testservice.com.lifuz.service.MyService;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button start,stop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initViews();
+
+    }
+
+    public void initViews() {
+
+        start = (Button) findViewById(R.id.start_service);
+        start.setOnClickListener(this);
+
+        stop = (Button) findViewById(R.id.stop_service);
+        stop.setOnClickListener(this);
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (v.getId()) {
+            case R.id.start_service:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                startService(new Intent(this, MyService.class));
+
+                break;
+
+            case R.id.stop_service:
+
+                stopService(new Intent(this,MyService.class));
+
+                break;
+
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }
