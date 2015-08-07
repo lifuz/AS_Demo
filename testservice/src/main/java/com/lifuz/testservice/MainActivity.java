@@ -1,7 +1,10 @@
 package com.lifuz.testservice;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,26 @@ import com.lifuz.testservice.com.lifuz.service.MyService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button start,stop;
+    private Button start, stop;
+    private Button bind, unbind;
+
+    //定义一个Service绑定类
+    private MyService.MyBinder mbind;
+
+    private ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //初始化Service绑定类
+            mbind = (MyService.MyBinder) service;
+            //调用绑定类中的方法并传值
+            mbind.startDownload("www.prd.com");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stop = (Button) findViewById(R.id.stop_service);
         stop.setOnClickListener(this);
 
+        bind = (Button) findViewById(R.id.bind_service);
+        unbind = (Button) findViewById(R.id.unbind_service);
+
+        bind.setOnClickListener(this);
+        unbind.setOnClickListener(this);
+
     }
 
     @Override
@@ -44,7 +72,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.stop_service:
 
-                stopService(new Intent(this,MyService.class));
+                stopService(new Intent(this, MyService.class));
+
+                break;
+
+            case R.id.bind_service:
+
+                bindService(new Intent(this, MyService.class), conn, BIND_AUTO_CREATE);
+
+                break;
+
+            case R.id.unbind_service:
+
+                unbindService(conn);
 
                 break;
 

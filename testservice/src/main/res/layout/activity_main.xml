@@ -17,4 +17,18 @@
         android:text="Stop Service"
         android:textSize="20sp"/>
 
+    <Button
+        android:id="@+id/bind_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bind Service"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/unbind_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="unbind Service"
+        android:textSize="20sp"/>
+
 </LinearLayout>
