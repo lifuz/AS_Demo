@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lifuz.testservice.com.lifuz.service.MyService;
+import com.lifuz.testservice.com.lifuz.service.NotificationService;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button start, stop;
     private Button bind, unbind;
+    private Button notify,unnotify;
 
     //定义一个Service绑定类
     private MyService.MyBinder mbind;
@@ -58,6 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bind.setOnClickListener(this);
         unbind.setOnClickListener(this);
 
+        notify = (Button) findViewById(R.id.notify_service);
+        notify.setOnClickListener(this);
+
+        unnotify = (Button) findViewById(R.id.unnotify_service);
+        unnotify.setOnClickListener(this);
+
     }
 
     @Override
@@ -87,6 +95,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 unbindService(conn);
 
                 break;
+
+            case R.id.notify_service:
+
+                startService(new Intent(this, NotificationService.class));
+
+                break;
+
+            case R.id.unnotify_service:
+
+                stopService(new Intent(this,NotificationService.class));
+                break;
+
 
         }
 

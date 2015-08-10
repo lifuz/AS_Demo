@@ -31,4 +31,18 @@
         android:text="unbind Service"
         android:textSize="20sp"/>
 
+    <Button
+        android:id="@+id/notify_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start notify Service"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/unnotify_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stop notify Service"
+        android:textSize="20sp"/>
+
 </LinearLayout>

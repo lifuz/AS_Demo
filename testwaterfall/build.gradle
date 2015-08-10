@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.0 rc3"
 
     defaultConfig {
-        applicationId "com.lifuz.testservice"
-        minSdkVersion 17
+        applicationId "com.lifuz.testwaterfall"
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"

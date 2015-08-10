@@ -94,3 +94,8 @@ ps：
 ②通过bindService方法绑定Service，则二者是同生共死的关系，即Activity被销毁，则Service也被销毁
 而且通过这个方法绑定Service，可以使二者的关联更加紧密，上面的代码可以看出这些
 
+
+4.创建前台Service
+
+
+
