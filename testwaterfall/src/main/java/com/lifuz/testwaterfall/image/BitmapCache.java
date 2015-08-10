@@ -11,6 +11,8 @@ import java.lang.ref.SoftReference;
 import java.util.Hashtable;
 
 /**
+ * 图片加载与缓存
+ *
  * 作者：李富 on 2015/8/10.
  * 邮箱：lifuzz@163.com
  */

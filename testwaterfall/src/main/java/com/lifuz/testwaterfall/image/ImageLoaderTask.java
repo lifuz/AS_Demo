@@ -3,11 +3,12 @@ package com.lifuz.testwaterfall.image;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.lifuz.testwaterfall.bean.TaskParam;
 
-import java.io.InputStream;
 import java.lang.ref.WeakReference;
 
 /**
@@ -36,9 +37,40 @@ public class ImageLoaderTask extends AsyncTask<TaskParam,Void,Bitmap> {
     }
 
     private Bitmap loadImageFile(final String fileName,final AssetManager manager) {
-        InputStream is = null;
+        
+        Log.i("tag",fileName);
+        Log.i("tag",param.getAssetManager().toString());
 
-        return null;
+        Bitmap bmp = BitmapCache.getInstance().getBitmap(fileName,param.getAssetManager());
+        Log.i("tag",bmp.toString());
+
+        return bmp;
     }
 
+    @Override
+    protected void onPostExecute(Bitmap bitmap) {
+
+        if(isCancelled()) {
+            bitmap = null;
+        }
+
+        if(imageViewWeakReference != null) {
+
+            ImageView imageView = imageViewWeakReference.get();
+
+            if(imageView != null) {
+                int width= bitmap.getWidth();
+                int height = bitmap.getHeight();
+
+                ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+
+                layoutParams.height =(height * param.getItemWidth()) /width;
+
+                imageView.setLayoutParams(layoutParams);
+                imageView.setImageBitmap(bitmap);
+            }
+
+        }
+
+    }
 }

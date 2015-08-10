@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
         TaskParam param = new TaskParam();
         param.setAssetManager(assetManager);
-        param.setFileName(fileName);
+        param.setFileName("images/" + fileName);
         param.setItemWidth(itemWidth);
 
         //选择加载图片的View
