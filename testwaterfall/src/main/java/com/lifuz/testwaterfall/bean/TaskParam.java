@@ -14,6 +14,7 @@ public class TaskParam {
     private String fileName;
     private AssetManager assetManager;
     private int itemWidth;
+    private int itemHeight;
 
     public String getFileName() {
         return fileName;
@@ -37,5 +38,13 @@ public class TaskParam {
 
     public void setItemWidth(int itemWidth) {
         this.itemWidth = itemWidth;
+    }
+
+    public int getItemHeight() {
+        return itemHeight;
+    }
+
+    public void setItemHeight(int itemHeight) {
+        this.itemHeight = itemHeight;
     }
 }

@@ -64,7 +64,8 @@ public class ImageLoaderTask extends AsyncTask<TaskParam,Void,Bitmap> {
 
                 ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
 
-                layoutParams.height =(height * param.getItemWidth()) /width;
+                layoutParams.height = param.getItemHeight();
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
                 imageView.setLayoutParams(layoutParams);
                 imageView.setImageBitmap(bitmap);

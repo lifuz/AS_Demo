@@ -1,14 +1,16 @@
 package com.lifuz.testwaterfall;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.lifuz.testwaterfall.bean.TaskParam;
 import com.lifuz.testwaterfall.image.ImageLoaderTask;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private LazyScrollView waterfall_scroll;
     private LinearLayout waterfall_container;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int column_count = 3; //显示列数
     private int itemWidth; //每列的宽度；
+    private int itemHeight;//每行高度
 
     private AssetManager assetManager;//assets文件夹管理器
 
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         display = this.getWindowManager().getDefaultDisplay();
 
         itemWidth = display.getWidth() / column_count;//根据屏幕大小计算每列大小
+        itemHeight = display.getHeight() / 4;
 
         assetManager = this.getAssets();//获取Assets文件夹管理器
 
@@ -128,16 +132,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void addImage(String fileName, int columnIndex) {
+    private void addImage(final String fileName, int columnIndex) {
         //获取图片的布局
         ImageView item = (ImageView) LayoutInflater.from(this).inflate(R.layout.waterfall_item, null);
         //把图片的imageView放到，相应位置的LinearLayout中
         waterfall_items.get(columnIndex).addView(item);
 
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,fileName,Toast.LENGTH_SHORT).show();
+            }
+        });
+
         TaskParam param = new TaskParam();
         param.setAssetManager(assetManager);
         param.setFileName("images/" + fileName);
         param.setItemWidth(itemWidth);
+        param.setItemHeight(itemHeight);
 
         //选择加载图片的View
         ImageLoaderTask task = new ImageLoaderTask(item);
