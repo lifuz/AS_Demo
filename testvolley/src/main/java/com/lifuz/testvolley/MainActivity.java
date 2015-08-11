@@ -1,37 +1,49 @@
 package com.lifuz.testvolley;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * 测试volley
+ * 详情请参见：
+ * http://blog.csdn.net/guolin_blog/article/details/17482095
+ * 作者：李富 on 2015/8/11
+ * 邮箱：lifuzz@163.com
+ */
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button volley_simple,volley_json,volley_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        volley_simple = (Button) findViewById(R.id.volley_simple);
+        volley_simple.setOnClickListener(this);
+
+        volley_json = (Button) findViewById(R.id.volley_json);
+        volley_json.setOnClickListener(this);
+
+        volley_image = (Button) findViewById(R.id.volley_image);
+        volley_image.setOnClickListener(this);
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (v.getId()) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.volley_simple:
+
+                startActivity(new Intent(MainActivity.this,SimpleActivity.class));
+
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }
