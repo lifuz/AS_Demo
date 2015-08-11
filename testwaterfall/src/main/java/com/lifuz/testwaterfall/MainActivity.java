@@ -105,6 +105,7 @@ public class MainActivity extends Activity {
             waterfall_container.addView(itemLayout);
 
 
+
         }
 
         try {
