@@ -76,3 +76,22 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
         };
 
 说明Volley没有可以加载post参数的类，必须重写StringRequest类的getParams()方法来传递参数。
+
+3.测试json，根据返回json类型选择相应的request请求主要有两种：JsonObjectRequest,JsonArrayRequest两种。
+
+我认为这个最好只用作get请求，post请求会丢失标头。
+
+具体代码如下：
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        json2_tv.setText(jsonObject.toString());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        });
