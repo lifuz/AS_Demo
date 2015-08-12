@@ -150,3 +150,24 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
 
          //缩放图片
          imageLoader.get("http://pic1.nipic.com/2008-09-08/200898163242920_2.jpg",listener,200,200);
+
+6测试NetworkImageView：实现过程如下
+NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
+
+        RequestQueue mqueue = Volley.newRequestQueue(this);
+        ImageLoader imageLoader = new ImageLoader(mqueue, new ImageLoader.ImageCache() {
+            @Override
+            public Bitmap getBitmap(String s) {
+                return null;
+            }
+
+            @Override
+            public void putBitmap(String s, Bitmap bitmap) {
+
+            }
+        });
+
+        niv.setDefaultImageResId(R.mipmap.ic_launcher);
+        niv.setErrorImageResId(R.mipmap.ic_launcher);
+
+        niv.setImageUrl("http://pic1.nipic.com/2008-09-08/200898163242920_2.jpg",imageLoader);
