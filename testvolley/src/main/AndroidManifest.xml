@@ -27,6 +27,10 @@
             android:name=".JsonActivity"
             android:label="@string/title_activity_json" >
         </activity>
+        <activity
+            android:name=".Json2Activity"
+            android:label="@string/title_activity_json2" >
+        </activity>
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button volley_simple,volley_json,volley_image;
+    private Button json2_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         volley_image = (Button) findViewById(R.id.volley_image);
         volley_image.setOnClickListener(this);
+
+        json2_tv = (Button) findViewById(R.id.volley_json2);
+        json2_tv.setOnClickListener(this);
 
     }
 
@@ -48,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.volley_json:
 
                 startActivity(new Intent(MainActivity.this,JsonActivity.class));
+
+                break;
+
+            case R.id.volley_json2:
+
+                startActivity(new Intent(MainActivity.this,Json2Activity.class));
 
                 break;
 

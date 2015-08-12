@@ -36,3 +36,43 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
 
         mqueue.add(stringRequest);
 
+2.StringRequ的post方法测试
+
+代码如下：
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://121.40.199.67/TrackServer/login",
+                new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    Log.i("tag", "result:" +jsonObject.getString("result"));
+                    Log.i("tag", "desc:" +jsonObject.getString("desc"));
+                    Log.i("tag", "opid:" +jsonObject.getString("opid"));
+
+                    volley_tv.setText(s);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String,String> params = new Hashtable<>();
+                params.put("userName","123");
+                params.put("passWord","8");
+
+                return params;
+            }
+        };
+
+说明Volley没有可以加载post参数的类，必须重写StringRequest类的getParams()方法来传递参数。

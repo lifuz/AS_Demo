@@ -14,7 +14,14 @@
         android:id="@+id/volley_json"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试JSON与POST"
+        android:text="测试POST"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/volley_json2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试JSON"
         android:textSize="20dp" />
 
     <Button

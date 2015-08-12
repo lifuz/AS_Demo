@@ -20,7 +20,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * volley:测试Json和post
+ * volley:post方法
  * 详情请参见：
  * http://blog.csdn.net/guolin_blog/article/details/17482095
  * 作者：李富 on 2015/8/11
@@ -42,23 +42,23 @@ public class JsonActivity extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://121.40.199.67/TrackServer/login",
                 new Response.Listener<String>() {
-            @Override
-            public void onResponse(String s) {
+                    @Override
+                    public void onResponse(String s) {
 
-                try {
-                    JSONObject jsonObject = new JSONObject(s);
-                    Log.i("tag", "result:" +jsonObject.getString("result"));
-                    Log.i("tag", "desc:" +jsonObject.getString("desc"));
-                    Log.i("tag", "opid:" +jsonObject.getString("opid"));
+                        try {
+                            JSONObject jsonObject = new JSONObject(s);
+                            Log.i("tag", "result:" + jsonObject.getString("result"));
+                            Log.i("tag", "desc:" + jsonObject.getString("desc"));
+                            Log.i("tag", "opid:" + jsonObject.getString("opid"));
 
-                    volley_tv.setText(s);
+                            volley_tv.setText(s);
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-            }
-        }, new Response.ErrorListener() {
+                    }
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
 
@@ -68,9 +68,9 @@ public class JsonActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
 
-                Map<String,String> params = new Hashtable<>();
-                params.put("userName","123");
-                params.put("passWord","8");
+                Map<String, String> params = new Hashtable<>();
+                params.put("userName", "123");
+                params.put("passWord", "8");
 
                 return params;
             }
