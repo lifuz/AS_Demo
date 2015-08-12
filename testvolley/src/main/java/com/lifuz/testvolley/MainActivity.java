@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
+            case R.id.volley_image:
+
+                startActivity(new Intent(MainActivity.this,ImageActivity.class));
+
         }
 
     }

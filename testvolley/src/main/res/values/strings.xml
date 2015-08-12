@@ -6,4 +6,5 @@
     <string name="title_activity_simple">SimpleActivity</string>
     <string name="title_activity_json">JsonActivity</string>
     <string name="title_activity_json2">Json2Activity</string>
+    <string name="title_activity_image">ImageActivity</string>
 </resources>
