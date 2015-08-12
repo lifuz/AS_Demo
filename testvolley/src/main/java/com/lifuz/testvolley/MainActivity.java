@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button volley_simple,volley_json,volley_image;
     private Button json2_tv;
+    private Button volley_image2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         json2_tv = (Button) findViewById(R.id.volley_json2);
         json2_tv.setOnClickListener(this);
+
+        volley_image2 = (Button) findViewById(R.id.volley_image2);
+        volley_image2.setOnClickListener(this);
 
     }
 
@@ -64,6 +68,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.volley_image:
 
                 startActivity(new Intent(MainActivity.this,ImageActivity.class));
+
+                break;
+
+            case R.id.volley_image2:
+
+                startActivity(new Intent(MainActivity.this,Image2Acitivity.class));
+
+                break;
 
         }
 
