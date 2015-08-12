@@ -21,7 +21,9 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
                 simple_tv.setText(s);
 
             }
+
         }, new Response.ErrorListener() {
+            //网络访问失败的处理
             @Override
             public void onErrorResponse(VolleyError volleyError) {
 

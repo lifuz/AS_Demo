@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 startActivity(new Intent(MainActivity.this,SimpleActivity.class));
 
+                break;
+
+            case R.id.volley_json:
+
+                startActivity(new Intent(MainActivity.this,JsonActivity.class));
+
+                break;
+
         }
 
     }

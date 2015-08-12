@@ -36,6 +36,8 @@ public class SimpleActivity extends AppCompatActivity {
 
         //创建http请求
         StringRequest stringRequest = new StringRequest("http://www.baidu.com", new Response.Listener<String>() {
+
+            //处理网络访问成功的情况
             @Override
             public void onResponse(String s) {
 
@@ -43,6 +45,8 @@ public class SimpleActivity extends AppCompatActivity {
 
             }
         }, new Response.ErrorListener() {
+
+            //处理网络访问失败的情况
             @Override
             public void onErrorResponse(VolleyError volleyError) {
 

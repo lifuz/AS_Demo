@@ -8,19 +8,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="简易测试volley"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/volley_json"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="测试JSON与POST"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
+
     <Button
         android:id="@+id/volley_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="测试图片下载"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
 
 </LinearLayout>
