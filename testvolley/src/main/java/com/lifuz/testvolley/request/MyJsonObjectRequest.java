@@ -12,7 +12,7 @@ import com.google.gson.Gson;
  * 作者：李富 on 2015/8/12.
  * 邮箱：lifuzz@163.com
  */
-public class JsonObjectRequest<T> extends Request<T> {
+public class MyJsonObjectRequest<T> extends Request<T> {
 
     private Gson gson;
 
@@ -20,8 +20,8 @@ public class JsonObjectRequest<T> extends Request<T> {
 
     private Response.Listener<T> tListener;
 
-    public JsonObjectRequest(int method, String url, Class<T> clazz, Response.Listener<T> listener,
-                             Response.ErrorListener errorListener) {
+    public MyJsonObjectRequest(int method, String url, Class<T> clazz, Response.Listener<T> listener,
+                               Response.ErrorListener errorListener) {
         super(method, url, errorListener);
 
         mclass =clazz;
@@ -32,8 +32,8 @@ public class JsonObjectRequest<T> extends Request<T> {
 
     }
 
-    public JsonObjectRequest(String url, Class<T> clazz, Response.Listener<T> listener,
-                             Response.ErrorListener errorListener) {
+    public MyJsonObjectRequest(String url, Class<T> clazz, Response.Listener<T> listener,
+                               Response.ErrorListener errorListener) {
         this(Method.GET, url, clazz, listener, errorListener);
     }
 

@@ -43,6 +43,10 @@
             android:name=".Image3_Activity"
             android:label="@string/title_activity_image3_" >
         </activity>
+        <activity
+            android:name=".CustomActivity"
+            android:label="@string/title_activity_custom" >
+        </activity>
     </application>
 
 </manifest>

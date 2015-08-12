@@ -17,7 +17,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button volley_simple,volley_json,volley_image;
-    private Button json2_tv;
+    private Button json2_tv,volley_custome;
     private Button volley_image2,volley_niv;
 
     @Override
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         volley_niv = (Button) findViewById(R.id.volley_niv);
         volley_niv.setOnClickListener(this);
+
+        volley_custome = (Button) findViewById(R.id.volley_custome_btn);
+        volley_custome.setOnClickListener(this);
 
     }
 
@@ -83,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.volley_niv:
 
                 startActivity(new Intent(MainActivity.this,Image3_Activity.class));
+                break;
+
+            case R.id.volley_custome_btn:
+
+                startActivity(new Intent(MainActivity.this,CustomActivity.class));
                 break;
 
         }

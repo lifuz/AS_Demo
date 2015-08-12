@@ -171,3 +171,5 @@ NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
         niv.setErrorImageResId(R.mipmap.ic_launcher);
 
         niv.setImageUrl("http://pic1.nipic.com/2008-09-08/200898163242920_2.jpg",imageLoader);
+
+7测试自定义Request，详情请参见：MyJsonObjectRequest类
