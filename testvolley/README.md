@@ -172,4 +172,5 @@ NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
 
         niv.setImageUrl("http://pic1.nipic.com/2008-09-08/200898163242920_2.jpg",imageLoader);
 
-7测试自定义Request，详情请参见：MyJsonObjectRequest类
+7测试自定义Request，详情请参见：MyJsonObjectRequest类, 自定义的Request的两种用法请见：CustomActivity
+和Custom2Activity两个类。

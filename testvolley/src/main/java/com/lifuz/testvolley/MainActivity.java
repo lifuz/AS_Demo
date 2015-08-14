@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.volley_custome_btn:
 
-                startActivity(new Intent(MainActivity.this,CustomActivity.class));
+                startActivity(new Intent(MainActivity.this,Custom2Activity.class));
                 break;
 
         }
