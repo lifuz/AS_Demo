@@ -15,6 +15,12 @@
         android:layout_height="wrap_content"
         android:text="测试第二种方法"
         android:textSize="20sp"/>
+    <Button
+        android:id="@+id/test3_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试第三种方法"
+        android:textSize="20sp"/>
 
 
 
