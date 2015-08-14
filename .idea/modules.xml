@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventsystem/eventsystem.iml" filepath="$PROJECT_DIR$/eventsystem/eventsystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/testservice/testservice.iml" filepath="$PROJECT_DIR$/testservice/testservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testtimertask/testtimertask.iml" filepath="$PROJECT_DIR$/testtimertask/testtimertask.iml" />
       <module fileurl="file://$PROJECT_DIR$/testvolley/testvolley.iml" filepath="$PROJECT_DIR$/testvolley/testvolley.iml" />
       <module fileurl="file://$PROJECT_DIR$/testwaterfall/testwaterfall.iml" filepath="$PROJECT_DIR$/testwaterfall/testwaterfall.iml" />
     </modules>

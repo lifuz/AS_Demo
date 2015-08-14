@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/eventsystem" />
             <option value="$PROJECT_DIR$/testservice" />
+            <option value="$PROJECT_DIR$/testtimertask" />
             <option value="$PROJECT_DIR$/testvolley" />
             <option value="$PROJECT_DIR$/testwaterfall" />
           </set>

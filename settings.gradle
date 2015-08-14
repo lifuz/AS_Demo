@@ -1,1 +1,1 @@
-include ':app', ':testservice', ':testwaterfall', ':testvolley', ':eventsystem'
+include ':app', ':testservice', ':testwaterfall', ':testvolley', ':eventsystem', ':testtimertask'
