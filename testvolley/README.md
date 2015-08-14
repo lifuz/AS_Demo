@@ -174,3 +174,5 @@ NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
 
 7测试自定义Request，详情请参见：MyJsonObjectRequest类, 自定义的Request的两种用法请见：CustomActivity
 和Custom2Activity两个类。
+
+源码也学习完了
