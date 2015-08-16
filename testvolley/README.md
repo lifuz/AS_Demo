@@ -11,7 +11,7 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
 
         RequestQueue mqueue = Volley.newRequestQueue(context);
 
-    ②创建一个request的请求
+    ②创建request的请求
 
         //创建http请求
         StringRequest stringRequest = new StringRequest("http://www.baidu.com", new Response.Listener<String>() {
@@ -32,13 +32,14 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
             }
         });
 
-       ③把request请求放入请求队列，访问网络：
+       ③把request请求加入RequestQueue，访问网络：
 
         mqueue.add(stringRequest);
 
 2.StringRequ的post方法测试
 
 代码如下：
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://121.40.199.67/TrackServer/login",
                 new Response.Listener<String>() {
             @Override
@@ -74,6 +75,7 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
                 return params;
             }
         };
+
 
 说明Volley没有可以加载post参数的类，必须重写StringRequest类的getParams()方法来传递参数。
 
@@ -122,6 +124,7 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
  * 3. 获取一个ImageListener对象。
  * 4. 调用ImageLoader的get()方法加载网络上的图片。
 
+
   //1. 创建一个RequestQueue对象。
          RequestQueue mqueue = Volley.newRequestQueue(this);
 
@@ -152,6 +155,8 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
          imageLoader.get("http://pic1.nipic.com/2008-09-08/200898163242920_2.jpg",listener,200,200);
 
 6测试NetworkImageView：实现过程如下
+
+
 NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
 
         RequestQueue mqueue = Volley.newRequestQueue(this);
