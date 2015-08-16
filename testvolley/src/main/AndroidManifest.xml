@@ -48,6 +48,7 @@
             android:label="@string/title_activity_custom" >
         </activity>
         <activity android:name=".Custom2Activity"/>
+        <activity android:name=".UploadActivity"/>
     </application>
 
 </manifest>

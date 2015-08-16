@@ -5,6 +5,9 @@ volley的使用
 http://blog.csdn.net/guolin_blog/article/details/17482095
 
 
+http://blog.csdn.net/jxxfzgy/article/details/44022435
+
+
 1.volley的简单使用：
 
     ①创建一个RequestQueue（请求队列对象）：
@@ -127,9 +130,7 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
 
   //1. 创建一个RequestQueue对象。
          RequestQueue mqueue = Volley.newRequestQueue(this);
-
          imageView = (ImageView) findViewById(R.id.image2_iv);
-
          //2. 创建一个ImageLoader对象。
          ImageLoader imageLoader = new ImageLoader(mqueue, new ImageLoader.ImageCache() {
              @Override
@@ -158,7 +159,6 @@ http://blog.csdn.net/guolin_blog/article/details/17482095
 
 
 NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
-
         RequestQueue mqueue = Volley.newRequestQueue(this);
         ImageLoader imageLoader = new ImageLoader(mqueue, new ImageLoader.ImageCache() {
             @Override
@@ -179,6 +179,8 @@ NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
 
 7测试自定义Request，详情请参见：MyJsonObjectRequest类, 自定义的Request的两种用法请见：CustomActivity
 和Custom2Activity两个类。
+
+8.上传图片，参照PostUploadRequest.java类
 
 
 

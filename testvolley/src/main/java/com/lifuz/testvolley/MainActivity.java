@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button volley_simple,volley_json,volley_image;
     private Button json2_tv,volley_custome;
     private Button volley_image2,volley_niv;
+    private Button volley_upload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         volley_custome = (Button) findViewById(R.id.volley_custome_btn);
         volley_custome.setOnClickListener(this);
+
+        volley_upload = (Button) findViewById(R.id.volley_upload);
+        volley_upload.setOnClickListener(this);
 
     }
 
@@ -91,6 +95,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.volley_custome_btn:
 
                 startActivity(new Intent(MainActivity.this,Custom2Activity.class));
+                break;
+
+            case R.id.volley_upload:
+
+                startActivity(new Intent(MainActivity.this,UploadActivity.class));
                 break;
 
         }
