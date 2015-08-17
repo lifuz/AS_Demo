@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * 测试上传图片
+ *
  * 作者：李富 on 2015/8/16.
  * 邮箱：lifuzz@163.com
  */
@@ -108,6 +110,7 @@ public class PostUploadRequest extends Request<String> {
     public String getBodyContentType() {
         return MULTIPART_FORM_DATA+"; boundary="+BOUNDARY;
     }
+
 
     @Override
     protected Response<String> parseNetworkResponse(NetworkResponse response) {

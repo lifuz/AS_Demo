@@ -16,7 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.lifuz.testvolley.bean.FormImage;
-import com.lifuz.testvolley.request.PostUploadRequest;
+import com.lifuz.testvolley.bean.FormText;
+import com.lifuz.testvolley.request.PostRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,12 +81,32 @@ public class UploadActivity extends Activity {
         fi.setmMime("image/png");
         fi.setmName("image");
         fi.setmBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.volley));
-        List<FormImage> list = new ArrayList<>();
+        List<Object> list = new ArrayList<>();
+
         list.add(fi);
 
          url = "http://192.168.2.117:8080/TestImageUp/TestUpload";
 
-        final PostUploadRequest uploadRequest = new PostUploadRequest(url, list, new Response.Listener() {
+        //测试图片上传
+//        final PostUploadRequest uploadRequest = new PostUploadRequest(url, list, new Response.Listener() {
+//            @Override
+//            public void onResponse(Object o) {
+//                url = o.toString();
+//                handler.sendEmptyMessage(1);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError volleyError) {
+//
+//            }
+//        });
+
+        //测试图片和文字同时上传
+
+        FormText ft = new FormText("name","lifuz");
+        list.add(ft);
+
+        final PostRequest postRequest = new PostRequest(url, list, new Response.Listener() {
             @Override
             public void onResponse(Object o) {
                 url = o.toString();
@@ -101,7 +122,10 @@ public class UploadActivity extends Activity {
         upload_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                queue.add(uploadRequest);
+//                queue.add(uploadRequest);
+
+                queue.add(postRequest);
+
             }
         });
 

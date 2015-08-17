@@ -182,6 +182,8 @@ NetworkImageView niv = (NetworkImageView) findViewById(R.id.volley_niv_iv);
 
 8.上传图片，参照PostUploadRequest.java类
 
+9.图片和普通参数混合上传成功，详细请参照：PostRequest.java 文件
+
 
 
 源码也学习完了
