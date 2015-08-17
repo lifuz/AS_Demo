@@ -11,13 +11,14 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.lifuz.testvolley.bean.FormImage;
 import com.lifuz.testvolley.bean.FormText;
+import com.lifuz.testvolley.utils.MessageBodyUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
 /**
- * 普通参数的bean类
+ * 图片和文字同时上传的Request请求
  * <p/>
  * 作者：李富 on 2015/8/17.
  * 邮箱：lifuzz@163.com
@@ -45,77 +46,44 @@ public class PostRequest extends Request<String> {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
+    /**
+     * 消息体
+     *
+     * @return
+     * @throws AuthFailureError
+     */
     @Override
     public byte[] getBody() throws AuthFailureError {
 
+        //如果传进来的参数为空，则返回，默认的消息体
         if (mListItem == null && mListItem.size() == 0) {
             return super.getBody();
         }
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-        int N = mListItem.size();
+        //把所有的参数都写入消息体中
+        for (Object obj : mListItem) {
 
-        for (int i = 0; i < N; i++) {
-
-            Object obj = mListItem.get(i);
-            Log.i("tag", mListItem.size() + "");
-
+            //因为我们是混合上传，所以我们有两种类型的消息：图片，文字
+            //判断参数的类是否为图片
             if (obj instanceof FormImage) {
+                //如果为图片则采用图片的格式进行上传
                 FormImage formImage = (FormImage) obj;
-                StringBuffer sb = new StringBuffer();
-            /*第一行*/
-                //`"--" + BOUNDARY + "\r\n"`
-                sb.append("--" + BOUNDARY);
-                sb.append("\r\n");
-            /*第二行*/
-                //Content-Disposition: form-data; name="参数的名称"; filename="上传的文件名" + "\r\n"
-                sb.append("Content-Disposition: form-data;");
-                sb.append(" name=\"");
-                sb.append(formImage.getmName());
-                sb.append("\"");
-                sb.append("; filename=\"");
-                sb.append(formImage.getmFileName());
-                sb.append("\"");
-                sb.append("\r\n");
-            /*第三行*/
-                //Content-Type: 文件的 mime 类型 + "\r\n"
-                sb.append("Content-Type: ");
-                sb.append(formImage.getmMime());
-                sb.append("\r\n");
-            /*第四行*/
-                //"\r\n"
-                sb.append("\r\n");
+
                 try {
-                    bos.write(sb.toString().getBytes("utf-8"));
-                /*第五行*/
-                    //文件的二进制数据 + "\r\n"
-                    bos.write(formImage.getmBitmap());
-                    bos.write("\r\n".getBytes("utf-8"));
+                    bos.write(MessageBodyUtils.pakageBitmap(formImage, BOUNDARY));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
             } else if (obj instanceof FormText) {
 
+                //如果是文字类型，则采用文字类型的消息体
                 FormText formText = (FormText) obj;
 
-                StringBuffer sb = new StringBuffer();
-            /*第一行:"--" + boundary + "\r\n" ;*/
-                sb.append("--" + BOUNDARY);
-                sb.append("\r\n");
-            /*第二行:"Content-Disposition: form-data; name="参数的名称"" + "\r\n" ;*/
-                sb.append("Content-Disposition: form-data;");
-                sb.append("name=\"");
-                sb.append(formText.getName());
-                sb.append("\"");
-                sb.append("\r\n");
-            /*第三行:"\r\n" ;*/
-                sb.append("\r\n");
-            /*第四行:"参数的值" + "\r\n" ;*/
-                sb.append(formText.getValue());
-                sb.append("\r\n");
                 try {
-                    bos.write(sb.toString().getBytes("utf-8"));
+                    bos.write(MessageBodyUtils.pakageText(formText, BOUNDARY));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

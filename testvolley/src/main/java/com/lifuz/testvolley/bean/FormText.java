@@ -1,6 +1,8 @@
 package com.lifuz.testvolley.bean;
 
 /**
+ * 普通参数的bean类
+ *
  * 作者：李富 on 2015/8/17.
  * 邮箱：lifuzz@163.com
  */
