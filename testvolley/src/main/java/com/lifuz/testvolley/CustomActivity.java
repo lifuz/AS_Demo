@@ -22,7 +22,7 @@ public class CustomActivity extends AppCompatActivity {
         String url = "http://121.40.199.67/TrackServer/login?userName=123&passWord=8";
         final TextView custome_tv = (TextView) findViewById(R.id.volley_custome);
 
-        MyJsonObjectRequest<Login> jsonObjectRequest =new MyJsonObjectRequest<Login>(url,
+        MyJsonObjectRequest<Login> jsonObjectRequest =new MyJsonObjectRequest<Login>(url,null,
                 Login.class, new Response.Listener<Login>() {
             @Override
             public void onResponse(Login login) {

@@ -6,6 +6,8 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 
+import java.util.Map;
+
 /**
  * 自己定义Request，使用Gson
  *
@@ -18,23 +20,28 @@ public class MyJsonObjectRequest<T> extends Request<T> {
 
     private Class<T> mclass;
 
+    private Map<String,String> params;
+
     private Response.Listener<T> tListener;
 
-    public MyJsonObjectRequest(int method, String url, Class<T> clazz, Response.Listener<T> listener,
+    public MyJsonObjectRequest(int method, String url, Map<String,String> params, Class<T> clazz, Response.Listener<T> listener,
                                Response.ErrorListener errorListener) {
         super(method, url, errorListener);
 
         mclass =clazz;
 
         tListener = listener;
+        this.params = params;
 
         gson = new Gson();
 
     }
 
-    public MyJsonObjectRequest(String url, Class<T> clazz, Response.Listener<T> listener,
+    public MyJsonObjectRequest(String url,Map<String,String> params, Class<T> clazz, Response.Listener<T> listener,
                                Response.ErrorListener errorListener) {
-        this(Method.GET, url, clazz, listener, errorListener);
+        this(Method.GET, url, params,clazz, listener, errorListener);
+
+
     }
 
 
@@ -55,7 +62,10 @@ public class MyJsonObjectRequest<T> extends Request<T> {
         return null;
     }
 
-
+    @Override
+    public Map<String, String> getParams() {
+        return params;
+    }
 
     @Override
     protected void deliverResponse(T t) {
