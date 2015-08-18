@@ -1,11 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/network_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试网络连接" />
+        android:text="测试网络连接"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/wifi_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试wifi的状态"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/mobile_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试移动网络的状态"
+        android:textSize="20sp"/>
 
 </LinearLayout>

@@ -13,6 +13,11 @@ import android.net.NetworkInfo;
 public class NetworkUtils {
 
 
+    /**
+     * 测试网络连接是否正常
+     * @param context
+     * @return
+     */
     public static boolean isNetworkConnnected(Context context) {
 
         if (context != null) {
@@ -25,6 +30,50 @@ public class NetworkUtils {
                 return info.isAvailable();
             }
 
+        }
+
+        return false;
+    }
+
+    /**
+     * 判断WiFi网络是否可用
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isWiFiConnected (Context context) {
+
+        if (context != null) {
+            ConnectivityManager manager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo info = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+            if (info != null) {
+                return info.isAvailable();
+            }
+
+        }
+
+        return false;
+    }
+
+    /**
+     * 判断移动网络是否可用
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isMobileConnected (Context context) {
+
+        if (context != null) {
+            ConnectivityManager manager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo info = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+            if (info != null) {
+                return info.isAvailable();
+            }
         }
 
         return false;

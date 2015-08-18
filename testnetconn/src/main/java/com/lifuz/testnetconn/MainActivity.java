@@ -11,7 +11,7 @@ import com.lifuz.testnetconn.utils.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button network_btn;
+    private Button network_btn,wifi_btn,mobile_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         network_btn = (Button) findViewById(R.id.network_btn);
         network_btn.setOnClickListener(this);
+
+        wifi_btn = (Button) findViewById(R.id.wifi_btn);
+        wifi_btn.setOnClickListener(this);
+
+        mobile_btn = (Button) findViewById(R.id.mobile_btn);
+        mobile_btn.setOnClickListener(this);
 
     }
 
@@ -35,6 +41,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this,"网络连接正常",Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this,"没有网络连接",Toast.LENGTH_SHORT).show();
+                    Log.i("tag","没有网络连接");
+                }
+
+                break;
+
+            case R.id.wifi_btn:
+
+                if(NetworkUtils.isWiFiConnected(getApplicationContext())) {
+                    Log.i("tag","网络连接正常");
+                    Toast.makeText(MainActivity.this,"wifi网络连接正常",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this,"没有wifi连接",Toast.LENGTH_SHORT).show();
+                    Log.i("tag","没有网络连接");
+                }
+
+                break;
+
+            case R.id.mobile_btn:
+
+                if(NetworkUtils.isMobileConnected(getApplicationContext())) {
+                    Log.i("tag","网络连接正常");
+                    Toast.makeText(MainActivity.this,"移动网络连接正常",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this,"没有移动网络连接",Toast.LENGTH_SHORT).show();
                     Log.i("tag","没有网络连接");
                 }
 
