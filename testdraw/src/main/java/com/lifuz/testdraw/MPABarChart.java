@@ -2,6 +2,7 @@ package com.lifuz.testdraw;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,14 +20,15 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.Highlight;
 import com.lifuz.testdraw.bean.Chart;
 import com.lifuz.testdraw.bean.Work;
 
@@ -68,9 +69,9 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
         works = new ArrayList<>();
         Work work = null;
 
-        for (int i = 0;i <5;i++) {
+        for (int i = 0; i < 5; i++) {
             work = new Work();
-            work.setName("张" + (i+1));
+            work.setName("张" + (i + 1));
             work.setBj_name("部件" + (i + 1));
             work.setCount(1000 + i + "");
             work.setPass(950 + i + "");
@@ -93,6 +94,8 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
         mChart.setNoDataText("");
         mChart.setBackgroundColor(getResources().getColor(R.color.mp_back));
 
+        mChart.setVisibleXRange(2, 2);
+
         // scaling can now only be done on x- and y-axis separately
         mChart.setPinchZoom(false);
 
@@ -106,13 +109,17 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
 
 //        mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
+
         XAxis xAxis = mChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setTypeface(mTf);
         xAxis.setDrawGridLines(false);
         xAxis.setSpaceBetweenLabels(2);
         xAxis.setDrawAxisLine(false);
+//        xAxis.setla
+//        xAxis.set
 
+//        xAxis.seta
 
 //        mChart.setScrollContainer(false);
 
@@ -127,6 +134,16 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
         leftAxis.setDrawAxisLine(false);
         leftAxis.setDrawGridLines(false);
         leftAxis.setDrawLabels(false);
+
+
+        LimitLine ll = new LimitLine(10000f, "10000");
+        ll.setLineColor(Color.RED);
+        ll.setLineWidth(1f);
+        ll.setTextColor(Color.BLACK);
+        ll.setTextSize(18f);
+        ll.setLabelPosition(LimitLine.LimitLabelPosition.LEFT_BOTTOM);
+
+        leftAxis.addLimitLine(ll);
 
         //设置双击不进行缩放
         mChart.setDoubleTapToZoomEnabled(false);
@@ -217,23 +234,34 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
 
     private void setList() {
 
-        adapter = new MyAdapter(getApplicationContext(),works);
+        adapter = new MyAdapter(getApplicationContext(), works);
         mp_list.setAdapter(adapter);
 
     }
 
+//    @Override
+//    public void onValueSelected(Entry entry, int i,) {
+////        Toast.makeText(MPABarChart.this,i + "",Toast.LENGTH_SHORT).show();
+//
+//        if (entry == null)
+//            return;
+//
+////        RectF bounds = mChart.getBarBounds((BarEntry)  entry);
+////
+////        PointF position = mChart.getPosition( entry, YAxis.AxisDependency.LEFT);
+//
+//        Toast.makeText(MPABarChart.this, entry.getVal() + ":" + entry.getXIndex(), Toast.LENGTH_SHORT).show();
+//    }
+//
+//    @Override
+//    public void onNothingSelected() {
+//
+//    }
+
+
     @Override
     public void onValueSelected(Entry entry, int i, Highlight highlight) {
-//        Toast.makeText(MPABarChart.this,i + "",Toast.LENGTH_SHORT).show();
 
-        if (entry == null)
-            return;
-
-//        RectF bounds = mChart.getBarBounds((BarEntry)  entry);
-//
-//        PointF position = mChart.getPosition( entry, YAxis.AxisDependency.LEFT);
-
-        Toast.makeText(MPABarChart.this, entry.getVal() + ":" + entry.getXIndex(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -260,10 +288,18 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
         barDataSets.add(set);
         BarData data = new BarData(xvals, barDataSets);
 
+
+
+//        ll.enableDashedLine(0,0,0);
+
+
         data.setValueTextSize(10f);
         data.setValueTypeface(mTf);
 
+
+
         mChart.setData(data);
+//        mChart.setData(ll);
 
         Legend l = mChart.getLegend();
         l.setEnabled(false);
@@ -271,8 +307,12 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
 
 
         mChart.setOnChartValueSelectedListener(this);
+//        mChart.setDrawMarkerViews(true);
+//        mChart.setDrawHighlightArrow(true);
 
+        mChart.setCameraDistance(100);
         mChart.animateX(25000);
+
 
     }
 
@@ -280,15 +320,15 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
     class MyAdapter extends BaseAdapter {
 
         private LayoutInflater layoutInflater;
-        private List<Work> works ;
+        private List<Work> works;
 
-        public MyAdapter(Context context,List works) {
+        public MyAdapter(Context context, List works) {
             this.works = works;
             layoutInflater = LayoutInflater.from(context);
 
         }
 
-        class WorkItem{
+        class WorkItem {
             public TextView name;
             public TextView bj_name;
             public TextView count;
@@ -318,7 +358,7 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
             if (convertView == null) {
                 workItem = new WorkItem();
 
-                convertView = layoutInflater.inflate(R.layout.mp_item,null);
+                convertView = layoutInflater.inflate(R.layout.mp_item, null);
 
                 workItem.name = (TextView) convertView.findViewById(R.id.mp_name);
                 workItem.bj_name = (TextView) convertView.findViewById(R.id.mp_bj);
@@ -326,8 +366,8 @@ public class MPABarChart extends Activity implements OnChartValueSelectedListene
                 workItem.pass = (TextView) convertView.findViewById(R.id.mp_pass);
                 convertView.setTag(workItem);
 
-            } else  {
-                workItem = (WorkItem)convertView.getTag();
+            } else {
+                workItem = (WorkItem) convertView.getTag();
             }
 
             workItem.name.setText(works.get(position).getName());

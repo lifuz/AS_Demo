@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".chart.BarChart"/>
         <activity android:name=".MPABarChart"/>
+        <activity android:name=".CombinedActivity"/>
     </application>
 
 </manifest>

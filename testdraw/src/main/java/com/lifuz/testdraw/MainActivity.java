@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button mpa = (Button) findViewById(R.id.mpa_btn);
         mpa.setOnClickListener(this);
 
+        Button cb = (Button) findViewById(R.id.cb_btn);
+        cb.setOnClickListener(this);
+
 
     }
 
@@ -36,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.mpa_btn:
 
                 startActivity(new Intent(MainActivity.this,MPABarChart.class));
+                break;
+
+            case R.id.cb_btn:
+
+                startActivity(new Intent(MainActivity.this,CombinedActivity.class));
                 break;
         }
     }
