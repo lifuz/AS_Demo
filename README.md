@@ -18,3 +18,5 @@ testtimertask:测三种定时器的使用
 testvolley:测试volley的使用
 
 testwaterfall:测试瀑布流的使用
+
+testupdateapp: 测试app的更新功能，包括：下载和安装
