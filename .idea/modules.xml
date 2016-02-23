@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/testpicupload/testpicupload.iml" filepath="$PROJECT_DIR$/testpicupload/testpicupload.iml" />
       <module fileurl="file://$PROJECT_DIR$/testservice/testservice.iml" filepath="$PROJECT_DIR$/testservice/testservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/testtimertask/testtimertask.iml" filepath="$PROJECT_DIR$/testtimertask/testtimertask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testupdateapp/testupdateapp.iml" filepath="$PROJECT_DIR$/testupdateapp/testupdateapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/testvolley/testvolley.iml" filepath="$PROJECT_DIR$/testvolley/testvolley.iml" />
       <module fileurl="file://$PROJECT_DIR$/testwaterfall/testwaterfall.iml" filepath="$PROJECT_DIR$/testwaterfall/testwaterfall.iml" />
     </modules>
