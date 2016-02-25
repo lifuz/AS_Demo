@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AS_Demo.iml" filepath="$PROJECT_DIR$/AS_Demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AS_Demo.iml" filepath="$PROJECT_DIR$/AS_Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventsystem/eventsystem.iml" filepath="$PROJECT_DIR$/eventsystem/eventsystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testasynchttp/testasynchttp.iml" filepath="$PROJECT_DIR$/testasynchttp/testasynchttp.iml" />
       <module fileurl="file://$PROJECT_DIR$/testdraw/testdraw.iml" filepath="$PROJECT_DIR$/testdraw/testdraw.iml" />
       <module fileurl="file://$PROJECT_DIR$/testnetconn/testnetconn.iml" filepath="$PROJECT_DIR$/testnetconn/testnetconn.iml" />
       <module fileurl="file://$PROJECT_DIR$/testpicupload/testpicupload.iml" filepath="$PROJECT_DIR$/testpicupload/testpicupload.iml" />
