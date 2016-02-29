@@ -131,7 +131,6 @@ public class BridgeService extends Service {
      * <p/>
      * p2p statu
      *
-     * @param msgtype
      * @param param
      */
     public void PPPPMsgNotify(String did, int type, int param) {

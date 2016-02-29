@@ -12,7 +12,6 @@ import com.prd.testipcamer.utils.ContentCommon;
 import com.prd.testipcamer.utils.SystemValue;
 
 import vstc2.nativecaller.NativeCaller;
-
 public class MainActivity extends Activity implements
         BridgeService.IpcamClientInterface,BridgeService.CallBackMessageInterface {
 

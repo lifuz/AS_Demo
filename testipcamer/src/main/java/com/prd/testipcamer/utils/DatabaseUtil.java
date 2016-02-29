@@ -250,17 +250,7 @@ public class DatabaseUtil{
 		return mCursor;
 	}	
 	
-	/**
-	 * 
-	 * @param oldaddr
-	 * @param oldport
-	 * @param name
-	 * @param addr
-	 * @param port
-	 * @param user
-	 * @param pwd
-	 * @return
-	 */
+
 	public boolean updateCamera(String oldDID, String name, String did, String user, String pwd) {
 		ContentValues args = new ContentValues();
 		args.put(KEY_NAME, name);
