@@ -1,1 +1,1 @@
-include ':app', ':testservice', ':testwaterfall', ':testvolley', ':eventsystem', ':testtimertask', ':testnetconn', ':testdraw', ':testpicupload', ':testupdateapp', ':testasynchttp', ':testipcamer'
+include ':app', ':testservice', ':testwaterfall', ':testvolley', ':eventsystem', ':testtimertask', ':testnetconn', ':testdraw', ':testpicupload', ':testupdateapp', ':testasynchttp', ':testipcamer', ':testguide'
