@@ -26,6 +26,7 @@ public class StartActivity extends Activity {
 
             if (msg.what == 0x003) {
                 startActivity(new Intent(StartActivity.this, MainActivity.class));
+                finish();
             }
         }
     };

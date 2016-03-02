@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.prd.testguide.MainActivity;
 import com.prd.testguide.R;
+import com.prd.testguide.utils.SharePreferencesUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,6 @@ import java.util.List;
 public class GuideActivity extends Activity {
 
     private int pageCount = 3;
-    private int currentIndex = 0;
 
     /**
      * 引导页小点
@@ -56,8 +56,6 @@ public class GuideActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_guide);
-//        SharePreferencesUtils.setFirst(this);
-
 
         initData();
 
@@ -112,7 +110,7 @@ public class GuideActivity extends Activity {
 
     public void clearDots() {
 
-        for (ImageView iv :dots) {
+        for (ImageView iv : dots) {
             iv.setEnabled(true);
         }
     }
@@ -162,6 +160,8 @@ public class GuideActivity extends Activity {
                 content_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        SharePreferencesUtils.setFirst(GuideActivity.this);
                         startActivity(new Intent(GuideActivity.this, MainActivity.class));
                         finish();
                     }
